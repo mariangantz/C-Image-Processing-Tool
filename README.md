@@ -1,24 +1,25 @@
-Functions
-void fr(int ***image, int N, int M)
-Frees the memory allocated for the image.
+**C Image Processing Tool**
 
-int ***aloc(int N, int M)
-Allocates memory for a new image with dimensions N x M.
+  This project is a comprehensive toolkit implemented entirely in C, designed for image manipulation and filtering. Its core is a powerful image processing library that operates on 3D matrix structures, accessible through a dynamic Command Line Interface (CLI).
 
-int ***flip_horizontal(int ***image, int N, int M)
-Flips the image horizontally.
+**Key Features**
 
-int ***rotate_left(int ***image, int N, int M)
-Rotates the image 90 degrees to the left.
+The project offers a wide range of operations, with efficient memory management for all data structures.
+1. Geometric and Compositional Manipulations
+  -Horizontal Flip: Reverses pixels along the horizontal axis (flip_horizontal).
+  -Left Rotation: Rotates the image 90 degrees counter-clockwise (rotate_left).
+  -Cropping: Extracts a sub-region specified by coordinates and dimensions (crop).
+  -Extension (Padding): Adds borders of specified dimensions and color around the image (extend).
+  -Pasting (Overlay): Overlays a source image onto a destination image at a given starting position (paste).
 
-int ***crop(int ***image, int N, int M, int x, int y, int h, int w)
-Crops the image to a specified region defined by the top-left corner (x, y) and dimensions (h, w).
+2. Filtering and I/O
+   -Convolution Filtering: Applies user-defined convolution filters (of any size, e.g., 3x3, 5x5) for operations like blurring or sharpening (apply_filter).
+   -BMP I/O: Support for reading from and writing to 24-bit BMP files.
 
-int ***extend(int ***image, int N, int M, int rows, int cols, int new_R, int new_G, int new_B)
-Extends the image by adding borders of specified color (new_R, new_G, new_B) and dimensions (rows, cols).
+3. Architecture
+  -Interactive CLI: A robust command-line interface that allows for the dynamic loading, saving, manipulation, and management of multiple images and filters throughout the session.
+  -Memory Management: Custom functions are implemented for the efficient allocation (aloc / alocare) and deallocation (fr / frri) of three-dimensional image structures.
 
-int ***paste(int ***image_dst, int N_dst, int M_dst, int ***image_src, int N_src, int M_src, int x, int y)
-Pastes the source image onto the destination image at the specified position (x, y).
+   Build and Run
 
-int ***apply_filter(int ***image, int N, int M, float **filter, int filter_size)
-Applies a convolution filter to the image for basic image filtering operations.
+     The project uses a standard Makefile for compilation.
